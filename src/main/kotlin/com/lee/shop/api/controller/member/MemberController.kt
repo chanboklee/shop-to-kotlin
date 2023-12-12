@@ -4,6 +4,8 @@ import com.lee.shop.api.controller.member.request.MemberSaveRequest
 import com.lee.shop.api.service.member.MemberService
 import com.lee.shop.api.service.member.response.MemberResponse
 import jakarta.validation.Valid
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -18,5 +20,15 @@ class MemberController(
     @PostMapping("/members")
     fun saveMember(@Valid @RequestBody memberSaveRequest: MemberSaveRequest): MemberResponse{
         return memberService.saveMember(memberSaveRequest.toServiceRequest());
+    }
+
+    @GetMapping("/members")
+    fun getMembers(): List<MemberResponse>{
+        return memberService.getMembers();
+    }
+
+    @GetMapping("/members/{memberId}")
+    fun getMember(@PathVariable("memberId") memberId: Long): MemberResponse{
+        return memberService.getMember(memberId)
     }
 }
