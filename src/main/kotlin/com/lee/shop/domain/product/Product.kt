@@ -1,10 +1,6 @@
 package com.lee.shop.domain.product
 
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import jakarta.persistence.*
 
 @Entity
 class Product(
@@ -15,5 +11,11 @@ class Product(
     val name: String,
     val price: Int,
     val stockQuantity: Int,
+
+    @Enumerated(EnumType.STRING)
+    val productType: ProductType,
+
+    @Enumerated(EnumType.STRING)
+    val productSellingStatus: ProductSellingStatus,
 ) {
 }

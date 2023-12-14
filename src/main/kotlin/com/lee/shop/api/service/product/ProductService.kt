@@ -13,7 +13,7 @@ class ProductService(
 ) {
 
     @Transactional
-    fun saveProduct(productSaveServiceRequest: ProductSaveServiceRequest): ProductResponse{
+    fun saveProduct(productSaveServiceRequest: ProductSaveServiceRequest): ProductResponse {
         val product = productSaveServiceRequest.toEntity()
         val savedProduct = productRepository.save(product)
         return ProductResponse.of(savedProduct)
