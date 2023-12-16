@@ -22,6 +22,7 @@ class ProductSaveRequest(
 
     fun toServiceRequest(): ProductSaveServiceRequest{
         return ProductSaveServiceRequest(
+            null,
             name,
             price,
             stockQuantity,

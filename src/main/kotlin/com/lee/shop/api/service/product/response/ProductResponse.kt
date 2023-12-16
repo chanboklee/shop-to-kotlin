@@ -6,6 +6,7 @@ import com.lee.shop.domain.product.ProductType
 
 class ProductResponse(
     val id: Long,
+    val productNumber: String,
     val name: String,
     val price: Int,
     val stockQuantity: Int,
@@ -17,6 +18,7 @@ class ProductResponse(
         fun of(product: Product): ProductResponse{
             return ProductResponse(
                 id = product.id!!,
+                productNumber = product.productNumber,
                 name = product.name,
                 price = product.price,
                 stockQuantity = product.stockQuantity,

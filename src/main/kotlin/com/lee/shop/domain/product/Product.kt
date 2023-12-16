@@ -8,6 +8,7 @@ class Product(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
     val id: Long? = null,
+    val productNumber: String,
     val name: String,
     val price: Int,
     val stockQuantity: Int,

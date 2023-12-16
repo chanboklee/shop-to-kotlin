@@ -5,6 +5,7 @@ import com.lee.shop.domain.product.ProductSellingStatus
 import com.lee.shop.domain.product.ProductType
 
 class ProductSaveServiceRequest(
+    val productNumber: String?,
     val name: String,
     val price: Int,
     val stockQuantity: Int,
@@ -12,9 +13,10 @@ class ProductSaveServiceRequest(
     val productSellingStatus: ProductSellingStatus,
 ) {
 
-    fun toEntity(): Product{
+    fun toEntity(productNumber: String): Product{
         return Product(
             null,
+            productNumber,
             name,
             price,
             stockQuantity,
