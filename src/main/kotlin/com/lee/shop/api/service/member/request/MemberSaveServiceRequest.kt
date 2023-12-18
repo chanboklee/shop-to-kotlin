@@ -15,4 +15,18 @@ class MemberSaveServiceRequest(
             password
         )
     }
+
+    companion object {
+        fun fixture(
+            name: String = "이찬복",
+            email: String = "chanboklee@naver.com",
+            password: String = "1234",
+        ): MemberSaveServiceRequest{
+            return MemberSaveServiceRequest(
+                name = name,
+                email = email,
+                password = password,
+            )
+        }
+    }
 }
