@@ -57,4 +57,19 @@ class MemberServiceTest @Autowired constructor(
                 tuple("춘향이", "chun@naver.com", "1234"),
             )
     }
+
+    @DisplayName("회원 ID를 받아 가입된 회원을 조회한다.")
+    @Test
+    fun getMember(){
+        // given
+        val member = Member.fixture(null, "이찬복", "chanboklee@naver.com", "1234")
+        val savedMember = memberRepository.save(member)
+
+        // when
+        val findMember = memberService.getMember(savedMember.id!!)
+
+        // then
+        assertThat(findMember).extracting("name", "email", "password")
+            .containsExactly("이찬복", "chanboklee@naver.com", "1234")
+    }
 }
