@@ -12,5 +12,8 @@ class Order(
 
     @Enumerated(EnumType.STRING)
     val orderStatus: OrderStatus,
+
+    @OneToMany(mappedBy = "order")
+    val orders: MutableList<Order> = mutableListOf(),
 ) {
 }

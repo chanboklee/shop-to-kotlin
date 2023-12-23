@@ -20,6 +20,9 @@ class Product(
 
     @Enumerated(EnumType.STRING)
     val productSellingStatus: ProductSellingStatus,
+
+    @OneToMany(mappedBy = "product")
+    val products: MutableList<Product> = mutableListOf(),
 ) {
 
     companion object {
