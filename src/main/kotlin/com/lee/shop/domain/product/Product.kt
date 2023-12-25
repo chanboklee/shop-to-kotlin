@@ -13,7 +13,7 @@ class Product(
     val productNumber: String,
     val name: String,
     val price: Int,
-    val stockQuantity: Int,
+    var stockQuantity: Int,
 
     @Enumerated(EnumType.STRING)
     val productType: ProductType,
@@ -24,6 +24,14 @@ class Product(
     @OneToMany(mappedBy = "product")
     val products: MutableList<Product> = mutableListOf(),
 ) {
+
+    fun removeStock(count: Int){
+        val currentStock = stockQuantity - count
+        if(currentStock < 0){
+            throw IllegalArgumentException("재고가 부족합니다.")
+        }
+        stockQuantity -= count
+    }
 
     companion object {
         fun fixture(
