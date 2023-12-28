@@ -17,6 +17,9 @@ class Delivery(
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     val member: Member,
+
+    @Enumerated(EnumType.STRING)
+    val deliveryStatus: DeliveryStatus,
 ) {
 
 }
