@@ -15,10 +15,14 @@ class OrderProduct(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
-    val order: Order,
+    var order: Order,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     val product: Product,
 ) {
+
+    fun cancel(){
+        product.addStock(quantity)
+    }
 }

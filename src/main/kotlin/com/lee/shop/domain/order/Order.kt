@@ -29,6 +29,9 @@ class Order(
             throw IllegalArgumentException("배송완료된 상품은 취소가 불가능합니다.")
         }
         orderStatus = OrderStatus.CANCEL
+        for(orderProduct in orderProducts){
+            orderProduct.cancel()
+        }
     }
 
     companion object {

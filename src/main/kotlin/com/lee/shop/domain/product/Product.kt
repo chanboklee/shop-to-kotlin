@@ -25,6 +25,10 @@ class Product(
     val products: MutableList<Product> = mutableListOf(),
 ) {
 
+    fun addStock(quantity: Int){
+        stockQuantity += quantity
+    }
+
     fun removeStock(count: Int){
         val currentStock = stockQuantity - count
         if(currentStock < 0){
