@@ -1,5 +1,6 @@
 package com.lee.shop.domain.product
 
+import com.lee.shop.domain.orderproduct.OrderProduct
 import com.lee.shop.domain.product.ProductSellingStatus.SELLING
 import com.lee.shop.domain.product.ProductType.TOP
 import jakarta.persistence.*
@@ -22,7 +23,7 @@ class Product(
     val productSellingStatus: ProductSellingStatus,
 
     @OneToMany(mappedBy = "product")
-    val products: MutableList<Product> = mutableListOf(),
+    val orderProducts: MutableList<OrderProduct> = mutableListOf(),
 ) {
 
     fun addStock(quantity: Int){
