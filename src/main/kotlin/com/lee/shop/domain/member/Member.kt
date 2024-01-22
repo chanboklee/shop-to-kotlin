@@ -8,10 +8,13 @@ class Member(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
     val id: Long? = null,
-    val name: String,
+    var name: String,
     val email: String,
     val password: String,
 ) {
+    fun update(name: String) {
+        this.name = name
+    }
 
     companion object {
         fun fixture(
